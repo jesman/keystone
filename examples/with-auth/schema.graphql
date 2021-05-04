@@ -71,6 +71,8 @@ enum SortTasksBy {
   priority_DESC
   isComplete_ASC
   isComplete_DESC
+  assignedTo_ASC
+  assignedTo_DESC
   finishBy_ASC
   finishBy_DESC
 }
@@ -113,6 +115,8 @@ input TaskRelateToManyInput {
 type Person {
   id: ID!
   name: String
+  email: String
+  password_is_set: Boolean
   tasks(
     where: TaskWhereInput
     search: String
@@ -148,6 +152,13 @@ input PersonWhereInput {
   name_not_contains: String
   name_in: [String]
   name_not_in: [String]
+  email: String
+  email_not: String
+  email_contains: String
+  email_not_contains: String
+  email_in: [String]
+  email_not_in: [String]
+  password_is_set: Boolean
 
   """
    condition must be true for all nodes
@@ -174,10 +185,14 @@ enum SortPeopleBy {
   id_DESC
   name_ASC
   name_DESC
+  email_ASC
+  email_DESC
 }
 
 input PersonUpdateInput {
   name: String
+  email: String
+  password: String
   tasks: TaskRelateToManyInput
 }
 
@@ -188,6 +203,8 @@ input PeopleUpdateInput {
 
 input PersonCreateInput {
   name: String
+  email: String
+  password: String
   tasks: TaskRelateToManyInput
 }
 
@@ -267,12 +284,50 @@ type Mutation {
    Delete multiple Person items by ID.
   """
   deletePeople(ids: [ID!]): [Person]
+  authenticatePersonWithPassword(
+    email: String!
+    password: String!
+  ): PersonAuthenticationWithPasswordResult!
+  createInitialPerson(
+    data: CreateInitialPersonInput!
+  ): PersonAuthenticationWithPasswordSuccess!
+  endSession: Boolean!
 }
 
 """
 The `Upload` scalar type represents a file upload.
 """
 scalar Upload
+
+union AuthenticatedItem = Person
+
+union PersonAuthenticationWithPasswordResult =
+    PersonAuthenticationWithPasswordSuccess
+  | PersonAuthenticationWithPasswordFailure
+
+type PersonAuthenticationWithPasswordSuccess {
+  sessionToken: String!
+  item: Person!
+}
+
+type PersonAuthenticationWithPasswordFailure {
+  code: PasswordAuthErrorCode!
+  message: String!
+}
+
+enum PasswordAuthErrorCode {
+  FAILURE
+  IDENTITY_NOT_FOUND
+  SECRET_NOT_SET
+  MULTIPLE_IDENTITY_MATCHES
+  SECRET_MISMATCH
+}
+
+input CreateInitialPersonInput {
+  name: String
+  email: String
+  password: String
+}
 
 type Query {
   """
@@ -332,6 +387,7 @@ type Query {
     first: Int
     skip: Int
   ): _QueryMeta
+  authenticatedItem: AuthenticatedItem
   keystone: KeystoneMeta!
 }
 

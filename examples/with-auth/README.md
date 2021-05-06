@@ -62,14 +62,6 @@ const { withAuth } = createAuth({
 
 ### Session
 
-Can I do some magic github link to a block of code?
-
-<insert file:range here>
-
-https://github.com/keystonejs/keystone/blob/07c371f7b1335b321124dfb833b857c0934fefb5/examples/with-auth/keystone.ts#L6
-
-https://github.com/keystonejs/keystone/blob/07c371f7b1335b321124dfb833b857c0934fefb5/examples/with-auth/keystone.ts#L6-L23
-
 ```typescript
 // Stateless sessions will store the listKey and itemId of the signed-in user in a cookie.
 // This session object will be made availble on the context object used in hooks, access-control,

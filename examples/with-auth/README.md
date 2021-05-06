@@ -1,9 +1,7 @@
-## Base Project - Authentication
+## Feature Example - Authentication
 
-This project is a base project which is used as a starter project for our other [feature examples](../).
-It implements a basic task management system, with `Tasks` and `People` who can be assigned to tasks.
-
-You can use this project as a starting place for learning how to use Keystone.
+This project demonstrates how to add password based authentication to your Keystone system.
+It builds on the [todo](../) starter project.
 
 ## Instructions
 
@@ -18,11 +16,16 @@ You can use the Admin UI to create items in your database.
 
 You can also access a GraphQL Playground at [localhost:3000/api/graphql](http://localhost:3000/api/graphql), which allows you to directly run GraphQL queries and mutations.
 
-🚀 Congratulations, you're now up and running with Keystone!
-
 ## Feature
 
-This project shows off XYZ.
+This project shows you how to add authentication to your Keystone system.
+
+ * Configures which fields to use for signin
+ * Sets up stateless session handling to keep track of the signed in user
+ * Adds a signin screen to the Admin UI
+ * Adds a signout button to the Admin UI
+ * Allows the signed in user to access their own details in the Admin UI
+ * Adds a helper page to the Admin UI to allow you to create your first user when starting from an empty database
 
 ### Added fields
 

@@ -5,6 +5,21 @@ It implements a basic task management system, with `Tasks` and `People` who can 
 
 You can use this project as a starting place for learning how to use Keystone.
 
+## Instructions
+
+To run this project, clone the Keystone repository locally then navigate to this directory and run:
+
+```shell
+yarn dev
+```
+
+This will start the Admin UI at [localhost:3000](http://localhost:3000).
+You can use the Admin UI to create items in your database.
+
+You can also access a GraphQL Playground at [localhost:3000/api/graphql](http://localhost:3000/api/graphql), which allows you to directly run GraphQL queries and mutations.
+
+🚀 Congratulations, you're now up and running with Keystone!
+
 ## Feature
 
 This project shows off XYZ.
@@ -19,6 +34,7 @@ This project shows off XYZ.
       // The password field stores a hash of the supplied password, and
       // we want to ensure that all people have a password set, so we use
       // the isRequired flag.
+      password: password({ isRequired: true }),
 ```
 
 ### Auth config
@@ -75,21 +91,6 @@ export default withAuth(
   })
 );
 ```
-
-## Instructions
-
-To run this project, clone the Keystone repository locally then navigate to this directory and run:
-
-```shell
-yarn dev
-```
-
-This will start the Admin UI at [localhost:3000](http://localhost:3000).
-You can use the Admin UI to create items in your database.
-
-You can also access a GraphQL Playground at [localhost:3000/api/graphql](http://localhost:3000/api/graphql), which allows you to directly run GraphQL queries and mutations.
-
-🚀 Congratulations, you're now up and running with Keystone!
 
 ## Next steps
 

@@ -97,7 +97,7 @@ export default withAuth(
 Screenshots of the first item experience, mailing list experience(?), login screen, the "logged in as" bit, logout button.
 ![initial user screen](../../screenshots/init-user-01.png)
 ![mailing list subscription screen](../../screenshots/mailing-list-01.png)
-![sign in screen](../../screnshots/sign-in-screen-01.png)
+![sign in screen](../../screenshots/sign-in-screen-01.png)
 
 ### GraphQL Playground
 

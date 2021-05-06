@@ -26,8 +26,6 @@ const { withAuth } = createAuth({
 // This session object will be made availble on the context object used in hooks, access-control,
 // resolvers, etc.
 const session = statelessSessions({
-  // The maxAge option controls how long session cookies are valid for before they expire
-  maxAge: 60 * 60 * 24 * 30, // 30 days
   // The session secret is used to encrypt cookie data (should be an environment variable)
   secret: '-- EXAMPLE COOKIE SECRET; CHANGE ME --',
 });

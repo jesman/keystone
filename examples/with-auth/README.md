@@ -1,4 +1,4 @@
-## Base Project - Task Manager
+## Base Project - Authentication
 
 This project is a base project which is used as a starter project for our other [feature examples](../).
 It implements a basic task management system, with `Tasks` and `People` who can be assigned to tasks.
@@ -91,6 +91,16 @@ export default withAuth(
   })
 );
 ```
+
+## Screenshots
+
+### Admin UI
+
+Screenshots of the first item experience, mailing list experience(?), login screen, the "logged in as" bit, logout button.
+
+### GraphQL Playground
+
+Show off the new API that this has added and how to use it
 
 ## Next steps
 

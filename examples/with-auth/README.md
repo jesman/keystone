@@ -16,9 +16,9 @@ You can use the Admin UI to create items in your database.
 
 You can also access a GraphQL Playground at [localhost:3000/api/graphql](http://localhost:3000/api/graphql), which allows you to directly run GraphQL queries and mutations.
 
-## Feature
+## Features
 
-This project shows you how to add authentication to your Keystone system.
+This project shows you how to add authentication to your Keystone system. We're going to use the [`@keystone-next/auth`](https://next.keystonejs.com/apis/auth) package, along with Keystone's [session management API](https://next.keystonejs.com/apis/session), to add the following features to your system:
 
  * Configures which fields to use for signin
  * Sets up stateless session handling to keep track of the signed in user
@@ -29,15 +29,17 @@ This project shows you how to add authentication to your Keystone system.
 
 ### Added fields
 
+We start by adding two new fields, `email` and `password`, to the `Person` list.
+
 ```typescript
-      // Added an email and password pair to be used with authentication
-      // The email address is going to be used as the identity field, so it's
-      // important that we set both isRequired and isUnique
-      email: text({ isRequired: true, isUnique: true }),
-      // The password field stores a hash of the supplied password, and
-      // we want to ensure that all people have a password set, so we use
-      // the isRequired flag.
-      password: password({ isRequired: true }),
+    // Added an email and password pair to be used with authentication
+    // The email address is going to be used as the identity field, so it's
+    // important that we set both isRequired and isUnique
+    email: text({ isRequired: true, isUnique: true }),
+    // The password field stores a hash of the supplied password, and
+    // we want to ensure that all people have a password set, so we use
+    // the isRequired flag.
+    password: password({ isRequired: true }),
 ```
 
 ### Auth config
